@@ -1,0 +1,62 @@
+[
+  {
+    "imageUrl": "assets/images/pic.jpg",
+    "title": "Movie 1",
+    "description": "Description of Movie 1",
+    "detailsLink": "/movie-details/1"
+  },
+  {
+    "imageUrl": "assets/images/pic.jpg",
+    "title": "Movie 2",
+    "description": "Description of Movie 2",
+    "detailsLink": "/movie-details/2"
+  },
+  {
+    "imageUrl": "assets/images/pic.jpg",
+    "title": "Movie 3",
+    "description": "Description of Movie 3",
+    "detailsLink": "/movie-details/3"
+  },
+  {
+    "imageUrl": "assets/images/pic.jpg",
+    "title": "Movie 4",
+    "description": "Description of Movie 4",
+    "detailsLink": "/movie-details/4"
+  },
+  {
+    "imageUrl": "assets/images/pic.jpg",
+    "title": "Movie 5",
+    "description": "Description of Movie 5",
+    "detailsLink": "/movie-details/5"
+  },
+  {
+    "imageUrl": "assets/images/pic.jpg",
+    "title": "Movie 6",
+    "description": "Description of Movie 6",
+    "detailsLink": "/movie-details/6"
+  },
+  {
+    "imageUrl": "assets/images/pic.jpg",
+    "title": "Movie 7",
+    "description": "Description of Movie 7",
+    "detailsLink": "/movie-details/7"
+  },
+  {
+    "imageUrl": "assets/images/pic.jpg",
+    "title": "Movie 8",
+    "description": "Description of Movie 8",
+    "detailsLink": "/movie-details/8"
+  },
+  {
+    "imageUrl": "assets/images/pic.jpg",
+    "title": "Movie 9",
+    "description": "Description of Movie 9",
+    "detailsLink": "/movie-details/9"
+  },
+  {
+    "imageUrl": "assets/images/pic.jpg",
+    "title": "Movie 10",
+    "description": "Description of Movie 10",
+    "detailsLink": "/movie-details/10"
+  }
+]
