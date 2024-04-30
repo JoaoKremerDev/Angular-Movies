@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 import { catchError, of } from 'rxjs';
+import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,9 @@ import { catchError, of } from 'rxjs';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  private HttpClientOther = inject(HttpClient);
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private moviesService: MoviesService
+  ) {}
 
   isActive = false;
 
@@ -45,7 +47,7 @@ export class HomeComponent implements OnInit {
   // here is how i've chosen to use it!
 
   getFanFavoriteMovies() {
-    this.httpClient.get<any[]>('assets/data/fanFavoriteMovies.json').subscribe({
+    this.moviesService.getFanFavoriteMovies().subscribe({
       next: (data: any[]) => {
         this.fanFavoriteMovies = data;
       },
@@ -59,7 +61,7 @@ export class HomeComponent implements OnInit {
   }
 
   getTopMovies() {
-    this.httpClient.get<any[]>('assets/data/topMovies.json').subscribe({
+    this.moviesService.getTopMovies().subscribe({
       next: (data: any[]) => {
         this.topMovies = data;
       },
