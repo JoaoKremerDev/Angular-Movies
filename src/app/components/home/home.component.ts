@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, inject } from '@angular/core';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -6,79 +8,69 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
 
-  isVisible = true;
+  private HttpClientOther = inject(HttpClient);
+  constructor(private httpClient: HttpClient) {}
 
-  topMovies: any[] = [
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie #1 Title',
-      actors: 'Movie #1 Actors',
-      year: '2023',
-      rate: '9.5',
-      rank: 1,
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie #3 Title',
-      actors: 'Movie #3 Actors',
-      year: '2023',
-      rate: '9.2',
-      rank: 3,
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie #4 Title',
-      actors: 'Movie #4 Actors',
-      year: '2023',
-      rate: '9.2',
-      rank: 4,
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie #2 Title',
-      actors: 'Movie #1 Actors',
-      year: '2023',
-      rate: '9.2',
-      rank: 4,
-    },
-  ];
+  isActive = false;
+  
+  topMovies: any[] = [];
+  fanFavoriteMovies: any[] = [];
 
-  fanFavoriteMovies: any[] = [
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie #1 Title',
-      actors: 'Movie #1 Actors',
-      year: '2023',
-      rate: '9.5',
-      rank: 1,
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie #3 Title',
-      actors: 'Movie #3 Actors',
-      year: '2023',
-      rate: '9.2',
-      rank: 3,
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie #4 Title',
-      actors: 'Movie #4 Actors',
-      year: '2023',
-      rate: '9.2',
-      rank: 4,
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie #2 Title',
-      actors: 'Movie #1 Actors',
-      year: '2023',
-      rate: '9.2',
-      rank: 4,
-    },
-  ];
+  ngOnInit(): void {
+    this.getFanFvoriteMovies();
+    this.getTopMovies();
+  }
 
-  ngOnInit(): void {}
+  // it's just an example to show how i would do it using the pipe method.
+  // but i preferred the other one.
+
+  // getFanFvoriteMovies() {
+  //   this.httpClient
+  //     .get<any[]>('assets/data/fanFavoriteMovies.json')
+  //     .pipe(
+  //       catchError((error) => {
+  //         console.log(error);
+  //         return of(null);
+  //       })
+  //     )
+  //     .subscribe((data) => {
+  //       if (data) {
+  //         this.fanFavoriteMovies = data;
+  //       } else {
+  //         this.fanFavoriteMovies = [];
+  //       }
+  //     });
+  // }
+
+  // here is how i've chosen to use it!
+
+
+  getFanFvoriteMovies() {
+    this.httpClient.get<any[]>('assets/data/fanFavoriteMovies.json').subscribe({
+      next: (data: any[]) => {
+        this.fanFavoriteMovies = data;
+      },
+      error: (error) => {
+        console.log('Error loading fan favorites data:', error);
+      },
+      complete: () => {
+        console.log('[getFanFvoriteMovies] Request completed successfuly');
+      },
+    });
+  }
+
+  getTopMovies() {
+    this.httpClient.get<any[]>('assets/data/topMovies.json').subscribe({
+      next: (data: any[]) => {
+        this.topMovies = data;
+      },
+      error: (error) => {
+        console.log('Error loading top movies data:', error);
+      },
+      complete: () => {
+        console.log('[getTopMovies] Request completed successfuly');
+      },
+    });
+  }
 }

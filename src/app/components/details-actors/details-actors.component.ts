@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,45 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details-actors.component.css'],
 })
 export class DetailsActorsComponent implements OnInit {
-  movieActors: any[] = [
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      name: 'Actor name',
-      role: 'Role',
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      name: 'Actor name',
-      role: 'Role',
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      name: 'Actor name',
-      role: 'Role',
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      name: 'Actor name',
-      role: 'Role',
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      name: 'Actor name',
-      role: 'Role',
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      name: 'Actor name',
-      role: 'Role',
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      name: 'Actor name',
-      role: 'Role',
-    },
-  ];
+  movieActors: any[] = [];
 
-  constructor() {}
+  constructor(private HttpClient: HttpClient) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadMovieActors();
+  }
+
+  loadMovieActors() {
+    this.HttpClient.get<any[]>('assets/data/movieActors.json').subscribe(
+      (data: any) => {
+        this.movieActors = data;
+      }
+    );
+  }
 }

@@ -12,13 +12,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr *ngFor="let search of searchResult">
       <th scope="row">1</th>
       <td>
-        <img src="../../../assets/images/pic.jpg" alt="" width="100" />
+        <img src="{{ search.imageUrl }}" alt="" width="100" />
       </td>
-      <td>Movie #1 Title</td>
-      <td>This is a short description for Movie #1 Title</td>
+      <td>{{ search.title }}</td>
+      <td>{{ search.description }}</td>
       <td>
         <a
           class="btn btn-warning"
@@ -27,25 +27,10 @@
         >
           <i class="bi bi-film"></i> Trailer</a
         >
-        <a class="btn btn-primary"> <i class="bi bi-eye" routerLink="/details"></i> Details</a>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>
-        <img src="../../../assets/images/pic.jpg" alt="" width="100" />
-      </td>
-      <td>Movie #1 Title</td>
-      <td>This is a short description for Movie #1 Title</td>
-      <td>
-        <a
-          class="btn btn-warning"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
+
+        <a class="btn btn-primary">
+          <i class="bi bi-eye" [routerLink]="search.detailsLink"></i> Details</a
         >
-          <i class="bi bi-film"></i> Trailer</a
-        >
-        <a class="btn btn-primary"> <i class="bi bi-eye" routerLink="/details"></i> Details</a>
       </td>
     </tr>
   </tbody>
