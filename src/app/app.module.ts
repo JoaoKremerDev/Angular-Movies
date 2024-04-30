@@ -17,6 +17,11 @@ import { DetailsActorsComponent } from './components/details-actors/details-acto
 import { AppRoutesModule } from './modules/app.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HeaderDirective } from './directives/header.directive';
+import { MyIfDirective } from './directives/my-if.directive';
+
+//Import HttpClientModule
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,8 +41,9 @@ import { HeaderDirective } from './directives/header.directive';
 
     // Directives
     HeaderDirective,
+    MyIfDirective,
   ],
-  imports: [BrowserModule, AppRoutesModule, FormsModule],
+  imports: [BrowserModule, AppRoutesModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
