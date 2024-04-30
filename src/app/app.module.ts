@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -18,11 +18,14 @@ import { AppRoutesModule } from './modules/app.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HeaderDirective } from './directives/header.directive';
 import { MyIfDirective } from './directives/my-if.directive';
+import { AuthGuard, provideAuth0 } from '@auth0/auth0-angular';
 
 //Import HttpClientModule
 
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesService } from './services/movies.service';
+import { GlobalErrorHandler } from './services/global-error-handler.service';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -39,13 +42,28 @@ import { MoviesService } from './services/movies.service';
     ModalComponent,
     DetailsActorsComponent,
     NotFoundComponent,
+    FeedbackComponent,
 
     // Directives
     HeaderDirective,
     MyIfDirective,
   ],
   imports: [BrowserModule, AppRoutesModule, FormsModule, HttpClientModule],
-  providers: [MoviesService],
+  providers: [
+    MoviesService,
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler,
+    },
+    AuthGuard,
+    provideAuth0({
+      domain: 'dev-07q8f5vtscttrbjy.us.auth0.com',
+      clientId: 'brI2qObASAwbh3Lm6sHlNPWGd1xzUBnD',
+      authorizationParams: {
+        redirect_uri: window.location.origin,
+      },
+    }),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

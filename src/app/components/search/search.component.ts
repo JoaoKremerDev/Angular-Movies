@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from 'src/app/services/movies.service';
@@ -13,10 +12,10 @@ export class SearchComponent implements OnInit {
   searchResult: any[] = [];
 
   constructor(
-    private activatedRoute: ActivatedRoute,
+    private _activatedRoute: ActivatedRoute,
     private moviesService: MoviesService
   ) {
-    this.activatedRoute.params.subscribe((p) => {
+    this._activatedRoute.params.subscribe((p) => {
       this.movieTitle = p['movieTitle'];
     });
   }
