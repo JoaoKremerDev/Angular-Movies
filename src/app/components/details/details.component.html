@@ -19,20 +19,16 @@
       <div class="col-md-4">
         <div class="card">
           <div class="card-header">Stars</div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Star 1 Name</li>
-            <li class="list-group-item">Star 2 Name</li>
-            <li class="list-group-item">Star 3 Name</li>
+          <ul class="list-group list-group-flush" *ngFor="let star of stars">
+            <li class="list-group-item">{{star}}</li>
           </ul>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card">
           <div class="card-header">Directors</div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Director 1 Name</li>
-            <li class="list-group-item">Director 2 Name</li>
-            <li class="list-group-item">Director 3 Name</li>
+          <ul class="list-group list-group-flush" *ngFor="let director of directors">
+            <li class="list-group-item">{{director}}</li>
           </ul>
         </div>
       </div>
@@ -40,10 +36,8 @@
       <div class="col-md-4">
         <div class="card">
           <div class="card-header">Genres</div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Genre 1 Name</li>
-            <li class="list-group-item">Genre 2 Name</li>
-            <li class="list-group-item">Genre 3 Name</li>
+          <ul class="list-group list-group-flush" *ngFor="let genre of genres">
+            <li class="list-group-item">{{genre}}</li>
           </ul>
         </div>
       </div>
