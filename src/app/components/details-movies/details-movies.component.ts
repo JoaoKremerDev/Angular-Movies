@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,40 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details-movies.component.css'],
 })
 export class DetailsMoviesComponent implements OnInit {
-  similarMovies: any[] = [
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie Title',
-      rate: 9.5,
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie Title',
-      rate: 9.5,
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie Title',
-      rate: 9.5,
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie Title',
-      rate: 9.5,
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie Title',
-      rate: 9.5,
-    },
-    {
-      imageUrl: '../../../assets/images/pic.jpg',
-      title: 'Movie Title',
-      rate: 9.5,
-    },
+  similarMovies: any[] = [];
+  constructor(private HttpClient: HttpClient) {}
 
-  ];
-  constructor() {}
+  ngOnInit(): void {
+    this.loadSimilarMovies();
+  }
 
-  ngOnInit(): void {}
+  loadSimilarMovies() {
+    this.HttpClient.get('assets/data/similarMovies.json').subscribe(
+      (data: any) => {
+        this.similarMovies = data;
+      }
+    );
+  }
 }
