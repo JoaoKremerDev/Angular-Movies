@@ -1,82 +1,10 @@
-<figure class="figure">
+<figure class="figure" *ngFor="let movieActor of movieActors">
   <img
-    src="../../../assets//images/pic.jpg"
+    src={{movieActor.imageUrl}}
     style="max-width: 150px"
     class="figure-img img-fluid rounded img-thumbnail"
     alt="..."
   />
-  <figcaption class="figure-caption">Actor name</figcaption>
-  <figcaption class="figure-caption">Role</figcaption>
-</figure>
-
-<figure class="figure">
-  <img
-    src="../../../assets//images/pic.jpg"
-    style="max-width: 150px"
-    class="figure-img img-fluid rounded img-thumbnail"
-    alt="..."
-  />
-  <figcaption class="figure-caption">Actor name</figcaption>
-  <figcaption class="figure-caption">Role</figcaption>
-</figure>
-
-<figure class="figure">
-  <img
-    src="../../../assets//images/pic.jpg"
-    style="max-width: 150px"
-    class="figure-img img-fluid rounded img-thumbnail"
-    alt="..."
-  />
-  <figcaption class="figure-caption">Actor name</figcaption>
-  <figcaption class="figure-caption">Role</figcaption>
-</figure>
-<figure class="figure">
-  <img
-    src="../../../assets//images/pic.jpg"
-    style="max-width: 150px"
-    class="figure-img img-fluid rounded img-thumbnail"
-    alt="..."
-  />
-  <figcaption class="figure-caption">Actor name</figcaption>
-  <figcaption class="figure-caption">Role</figcaption>
-</figure>
-<figure class="figure">
-  <img
-    src="../../../assets//images/pic.jpg"
-    style="max-width: 150px"
-    class="figure-img img-fluid rounded img-thumbnail"
-    alt="..."
-  />
-  <figcaption class="figure-caption">Actor name</figcaption>
-  <figcaption class="figure-caption">Role</figcaption>
-</figure>
-<figure class="figure">
-  <img
-    src="../../../assets//images/pic.jpg"
-    style="max-width: 150px"
-    class="figure-img img-fluid rounded img-thumbnail"
-    alt="..."
-  />
-  <figcaption class="figure-caption">Actor name</figcaption>
-  <figcaption class="figure-caption">Role</figcaption>
-</figure>
-<figure class="figure">
-  <img
-    src="../../../assets//images/pic.jpg"
-    style="max-width: 150px"
-    class="figure-img img-fluid rounded img-thumbnail"
-    alt="..."
-  />
-  <figcaption class="figure-caption">Actor name</figcaption>
-  <figcaption class="figure-caption">Role</figcaption>
-</figure>
-<figure class="figure">
-  <img
-    src="../../../assets//images/pic.jpg"
-    style="max-width: 150px"
-    class="figure-img img-fluid rounded img-thumbnail"
-    alt="..."
-  />
-  <figcaption class="figure-caption">Actor name</figcaption>
-  <figcaption class="figure-caption">Role</figcaption>
+  <figcaption class="figure-caption">{{movieActor.name}}</figcaption>
+  <figcaption class="figure-caption">{{movieActor.role}}</figcaption>
 </figure>

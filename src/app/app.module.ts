@@ -14,6 +14,9 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { FormsModule } from '@angular/forms';
 import { DetailsActorsComponent } from './components/details-actors/details-actors.component';
+import { AppRoutesModule } from './modules/app.module';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HeaderDirective } from './directives/header.directive';
 
 @NgModule({
   declarations: [
@@ -29,13 +32,13 @@ import { DetailsActorsComponent } from './components/details-actors/details-acto
     LoaderComponent,
     ModalComponent,
     DetailsActorsComponent,
+    NotFoundComponent,
 
+    // Directives
+    HeaderDirective,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutesModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
