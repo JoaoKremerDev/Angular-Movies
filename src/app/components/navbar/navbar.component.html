@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Movies</a>
+    <a class="navbar-brand" href="#">Mussi Movies</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -39,10 +39,57 @@
         <button
           class="btn btn-outline-success"
           type="submit"
-          [routerLink]="['/search/'+searchMovieTitle]"
+          [routerLink]="['/search/' + searchMovieTitle]"
         >
           Search
         </button>
+      </div>
+      <div class="d-flex" *ngIf="!(_auth.isAuthenticated$ | async)">
+        <button
+          class="btn btn-outline-primary"
+          (click)="_auth.loginWithPopup()"
+        >
+          <i class="bi bi-box-arrow-in-right me-2"></i>Log in
+        </button>
+      </div>
+
+      <div class="btn-group btn-logout" *ngIf="_auth.isAuthenticated$ | async">
+        <button
+          type="button"
+          class="btn dropdown-toggle"
+          data-bs-toggle="dropdown"
+          aria-expanded="true"
+        >
+          <img
+            src="{{ loggedInUser.picture }}"
+            alt=""
+            class="round-circle"
+            height="30"
+            width="30"
+            alt="Profile picture"
+          />
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <a class="dropdown-item">
+              <span *ngIf="loggedInUser.name"
+                ><i class="bi bi-person"></i> <b>{{ loggedInUser.name }}</b>
+              </span>
+              <br />
+              <span *ngIf="loggedInUser.email"
+                ><i class="bi bi-envelope"></i> <b>{{ loggedInUser.email }}</b>
+              </span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider" />
+          </li>
+          <li>
+            <button class="dropdown-item logout" (click)="_auth.logout()">
+              <i class="bi bi-box-arrow-left"></i> Log out
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

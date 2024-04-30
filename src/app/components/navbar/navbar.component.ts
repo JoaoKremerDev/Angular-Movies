@@ -1,5 +1,6 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-navbar',
@@ -7,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
+  public searchMovieTitle = '';
+  public loggedInUser: any;
 
-  public searchMovieTitle = "";
+  constructor(public _auth: AuthService) {}
 
-  constructor() {
-
+  ngOnInit(): void {
+    if (this._auth.user$) {
+      this._auth.user$.subscribe((data) => {
+        this.loggedInUser = data;
+        console.log('LoggedIn User = ', this.loggedInUser)
+      });
+    }
   }
-
-  ngOnInit(): void {}
 }
