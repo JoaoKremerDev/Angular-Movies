@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
   selector: 'app-details-actors',
@@ -9,17 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class DetailsActorsComponent implements OnInit {
   movieActors: any[] = [];
 
-  constructor(private HttpClient: HttpClient) {}
+  constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
     this.loadMovieActors();
   }
 
   loadMovieActors() {
-    this.HttpClient.get<any[]>('assets/data/movieActors.json').subscribe(
-      (data: any) => {
-        this.movieActors = data;
-      }
-    );
+    this.moviesService.getLoadMovieActors().subscribe((data: any) => {
+      this.movieActors = data;
+    });
   }
 }
