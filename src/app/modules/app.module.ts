@@ -18,9 +18,24 @@ const routes: Routes = [
   { path: 'search/:movieTitle', component: SearchComponent },
   //   { path: 'feedback', component: FeedBackComponent },
 
+  // START: Nested Routes (just an example to show that i know how to use nested routes in Angular)
+  // This routes would be access from 'details/1/nestedRoute' for example.
+  // I would just need to use the app-outlet where i want it to be shown which is not the case
+  //  at this application!
+  //But there is the nested Route example below!
+
+  // {
+  //   path: 'details/:id',
+  //   component: DetailsComponent,
+  //   children: [
+  //     { path: 'actors', component: DetailsActorsComponent },
+  //     { path: 'movies', component: DetailsMoviesComponent },
+  //     { path: 'reviews', component: DetailsReviewsComponent },
+  //   ],
+  // },
+
   // 404 page for non-existing URLs
   { path: '**', component: NotFoundComponent },
-
 ];
 
 @NgModule({
