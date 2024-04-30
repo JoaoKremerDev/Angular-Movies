@@ -7,16 +7,38 @@ import { DetailsMoviesComponent } from '../components/details-movies/details-mov
 import { DetailsReviewsComponent } from '../components/details-reviews/details-reviews.component';
 import { SearchComponent } from '../components/search/search.component';
 import { NotFoundComponent } from '../components/not-found/not-found.component';
+import { FeedbackComponent } from '../components/feedback/feedback.component';
+import { AuthGuard } from '@auth0/auth0-angular';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'details/:id', component: DetailsComponent },
-  { path: 'details/actors/:id', component: DetailsActorsComponent },
-  { path: 'details/movies/:id', component: DetailsMoviesComponent },
-  { path: 'details/reviews/:id', component: DetailsReviewsComponent },
-  { path: 'search/:movieTitle', component: SearchComponent },
-  //   { path: 'feedback', component: FeedBackComponent },
+  {
+    path: 'details/:id',
+    component: DetailsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'details/actors/:id',
+    component: DetailsActorsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'details/movies/:id',
+    component: DetailsMoviesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'details/reviews/:id',
+    component: DetailsReviewsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'search/:movieTitle',
+    component: SearchComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'feedback', component: FeedbackComponent, canActivate: [AuthGuard] },
 
   // START: Nested Routes (just an example to show that i know how to use nested routes in Angular)
   // This routes would be access from 'details/1/nestedRoute' for example.
