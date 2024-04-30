@@ -1,4 +1,81 @@
-<p>details works!</p>
+<h1 class="sectionTitle sectionMargin">Movie Title</h1>
 
-<app-details-movies></app-details-movies>
-<app-details-reviews></app-details-reviews>
+<div class="row">
+  <div class="col-md-6">
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/-RsAP6A5rNs?si=_i3kgE7ZSjj_d5Ep"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <div class="col-md-6">
+    <p class="lead">The story of the movie that has been chosen</p>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">Stars</div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Star 1 Name</li>
+            <li class="list-group-item">Star 2 Name</li>
+            <li class="list-group-item">Star 3 Name</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">Directors</div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Director 1 Name</li>
+            <li class="list-group-item">Director 2 Name</li>
+            <li class="list-group-item">Director 3 Name</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">Genres</div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Genre 1 Name</li>
+            <li class="list-group-item">Genre 2 Name</li>
+            <li class="list-group-item">Genre 3 Name</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <h1 class="sectionTitle sectionMargin">Actors</h1>
+  <div class="col-md-12 text-center">
+    <app-details-actors></app-details-actors>
+  </div>
+
+  <div class="text-center">
+    <a class="btn btn-warning">View all actors</a>
+  </div>
+</div>
+
+<div class="row">
+  <h1 class="sectionTitle sectionMargin">Reviews</h1>
+  <div class="col-md-12">
+    <app-details-reviews></app-details-reviews>
+  </div>
+   <div class="text-center">
+    <a class="btn btn-warning">View all reviews</a>
+  </div>
+</div>
+
+<div class="row">
+  <h1 class="sectionTitle sectionMargin">Similar Movies</h1>
+  <div class="col-md-12 text-center">
+    <app-details-movies></app-details-movies>
+  </div>
+
+</div>
