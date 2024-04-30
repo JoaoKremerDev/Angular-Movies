@@ -8,17 +8,16 @@ import { catchError, of } from 'rxjs';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
   private HttpClientOther = inject(HttpClient);
   constructor(private httpClient: HttpClient) {}
 
   isActive = false;
-  
+
   topMovies: any[] = [];
   fanFavoriteMovies: any[] = [];
 
   ngOnInit(): void {
-    this.getFanFvoriteMovies();
+    this.getFanFavoriteMovies();
     this.getTopMovies();
   }
 
@@ -45,8 +44,7 @@ export class HomeComponent implements OnInit {
 
   // here is how i've chosen to use it!
 
-
-  getFanFvoriteMovies() {
+  getFanFavoriteMovies() {
     this.httpClient.get<any[]>('assets/data/fanFavoriteMovies.json').subscribe({
       next: (data: any[]) => {
         this.fanFavoriteMovies = data;
