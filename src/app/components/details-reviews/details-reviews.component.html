@@ -1,84 +1,28 @@
 <div class="accordion" id="accordionExample">
-  <div class="accordion-item">
+  <div class="accordion-item" *ngFor="let movieRate of movieRates; let i=index">
     <h2 class="accordion-header">
       <button
-        class="accordion-button"
+        class="accordion-button collapsed"
         type="button"
         data-bs-toggle="collapse"
-        data-bs-target="#collapseOne"
+        [attr.data-bs-target]="'#collapseOne'+i"
         aria-expanded="true"
-        aria-controls="collapseOne"
+        [attr.aria-controls]="'collapseOne'+i"
       >
-        <i class="bi bi-star"> <b> 7.5/10</b> Review #1</i>
+        <i class="bi bi-star"> <b> {{movieRate.rate}}/10</b> Review #{{i+1}}</i>
       </button>
     </h2>
     <div
-      id="collapseOne"
-      class="accordion-collapse collapse show"
+      id="collapseOne{{i}}"
+      class="accordion-collapse collapse"
       data-bs-parent="#accordionExample"
     >
       <div class="accordion-body">
-        <p>This is where the review description is going to be</p>
-        <p class="blackquote-footer">Review author</p>
+        <p>{{movieRate.review}}</p>
+        <p class="blackquote-footer">{{movieRate.author}}</p>
         <p>
-          <i>100 out of 120 found this useful</i>
+          <i>{{movieRate.usefulCount}} out of {{movieRate.totalCount}} found this useful</i>
         </p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapseTwo"
-          aria-expanded="false"
-          aria-controls="collapseTwo"
-        >
-          <i class="bi bi-star"> <b> 9.5/10</b> Review #2</i>
-        </button>
-      </h2>
-      <div
-        id="collapseTwo"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <p>This is where the review description is going to be</p>
-          <p class="blackquote-footer">Review author</p>
-          <p>
-            <i>100 out of 120 found this useful</i>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapseThree"
-          aria-expanded="false"
-          aria-controls="collapseThree"
-        >
-          <i class="bi bi-star"> <b> 8.5/10</b> Review #3</i>
-        </button>
-      </h2>
-      <div
-        id="collapseThree"
-        class="accordion-collapse collapse"
-        data-bs-parent="#accordionExample"
-      >
-        <div class="accordion-body">
-          <div class="accordion-body">
-            <p>This is where the review description is going to be</p>
-            <p class="blackquote-footer">Review author</p>
-            <p>
-              <i>100 out of 120 found this useful</i>
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
