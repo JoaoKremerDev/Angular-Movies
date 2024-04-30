@@ -1,7 +1,7 @@
 <div class="row sectionMargin">
   <div class="col-md-8">
     <div id="carouselExampleCaptions" class="carousel slide">
-      <div class="carousel-indicators">
+      <div class="carousel-indicators" routerLink="/details">
         <button
           type="button"
           data-bs-target="#carouselExampleCaptions"
@@ -23,7 +23,7 @@
           aria-label="Slide 3"
         ></button>
       </div>
-      <div class="carousel-inner">
+      <div class="carousel-inner" routerLink="/details">
         <div class="carousel-item active">
           <img
             src="../../../assets//images/pic.jpg"
@@ -82,7 +82,11 @@
     class="col-md-4"
     style="overflow-y: scroll; max-height: 490px; scrollbar-width: none"
   >
-    <div class="card" style="width: 18rem; margin-bottom: 10px">
+    <div
+      class="card"
+      style="width: 18rem; margin-bottom: 10px"
+      routerLink="/details"
+    >
       <img
         src="../../../assets//images/pic.jpg"
         class="card-img-top"
@@ -102,7 +106,7 @@
         </a>
       </div>
     </div>
-    <div class="card" style="width: 18rem">
+    <div class="card" style="width: 18rem" routerLink="/details">
       <img
         src="../../../assets//images/pic.jpg"
         class="card-img-top"
@@ -129,7 +133,7 @@
   <h1 class="sectionTitle">Fan favorites</h1>
 
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3" routerLink="/details/1">
       <div class="card">
         <img src="../../../assets/images/pic.jpg" class="card-image" alt="" />
 
@@ -145,7 +149,7 @@
       </div>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3" routerLink="/details">
       <div class="card">
         <img src="../../../assets/images/pic.jpg" class="card-image" alt="" />
 
@@ -161,7 +165,7 @@
       </div>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3" routerLink="/details">
       <div class="card">
         <img src="../../../assets/images/pic.jpg" class="card-image" alt="" />
 
@@ -177,7 +181,7 @@
       </div>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3" routerLink="/details">
       <div class="card">
         <img src="../../../assets/images/pic.jpg" class="card-image" alt="" />
 
