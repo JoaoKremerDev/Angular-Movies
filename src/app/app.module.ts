@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { DetailsActorsComponent } from './components/details-actors/details-actors.component';
 import { AppRoutesModule } from './modules/app.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HeaderDirective } from './directives/header.directive';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ModalComponent,
     DetailsActorsComponent,
     NotFoundComponent,
+
+    // Directives
+    HeaderDirective,
   ],
   imports: [BrowserModule, AppRoutesModule, FormsModule],
   providers: [],
